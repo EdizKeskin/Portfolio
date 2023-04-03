@@ -84,6 +84,7 @@ export default function Navbar() {
                                         title={link.title}
                                         href={link.href}
                                         className="font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
+                                        prefetch={false}
                                     >
                                         {link.title}
                                     </Link>

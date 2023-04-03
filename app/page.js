@@ -17,23 +17,27 @@ export default function Home() {
   const Social = [
     {
       name: "Github",
-      href: "",
+      href: "https://github.com/EdizKeskin",
       icon: <FaGithub size={"30px"} color="white" />,
+      ariaLabel: "Github",
     },
     {
       name: "Twitter",
-      href: "",
+      href: "https://twitter.com/EdizKeskin_",
       icon: <FaTwitter size={"30px"} color="white" />,
+      ariaLabel: "Twitter",
     },
     {
       name: "Instagram",
-      href: "",
+      href: "https://www.instagram.com/sharpness_4/",
       icon: <FaInstagram size={"30px"} color="white" />,
+      ariaLabel: "Instagram",
     },
     {
       name: "steam",
-      href: "",
+      href: "https://steamcommunity.com/id/sharpness4",
       icon: <FaSteam size={"30px"} color="white" />,
+      ariaLabel: "Steam",
     },
   ];
 
@@ -62,7 +66,7 @@ export default function Home() {
               <div className="flex items-center flex-row justify-center p-13 mt-10 rounded-md gap-5">
                 {Social.map((social) => (
                   <div key={social.name} className="tooltip tooltip-bottom" data-tip={social.name}>
-                    <a className="text-white" href={social.href} rel="noopener noreferrer">
+                    <a className="text-white" href={social.href} rel="noopener noreferrer" aria-label={social.ariaLabel}>
                       {social.icon}
                     </a>
                   </div>

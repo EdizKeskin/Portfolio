@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://portfolio-nextjs-smoky-rho.vercel.app/sitemap.xml

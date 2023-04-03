@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function Scroll() {
     return (
         <div className='flex justify-center mt-20'>
-            <a href='#about'>
+            <a href='#about' aria-label='Scroll to about'>
                 <div className='w-[35px] h-[64px] rounded-3xl border-4 border-gray-300 flex justify-center items-start p-2'>
                     <motion.div
                         animate={{
