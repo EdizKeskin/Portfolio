@@ -16,7 +16,7 @@ export const metadata = {
     siteName: 'Ediz Keskin',
     images: [
       {
-        url: 'https://edizkeskin.com.tr/card.png',
+        url: 'https://portfolio-nextjs-edizkeskin.vercel.app/card.png',
         width: 800,
         height: 600,
       },
