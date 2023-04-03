@@ -5,11 +5,12 @@ import {
   FaTwitter,
   FaGithub,
 } from "react-icons/fa";
-import Logo from "@/components/Logo";
+import dynamic from 'next/dynamic';
 import Scroll from "@/components/Scroll";
 import MotionDiv from "@/components/MotionDiv";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
+const Logo = dynamic(() => import('@/components/Logo'));
 
 
 export default function Home() {

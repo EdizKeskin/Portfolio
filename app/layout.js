@@ -1,6 +1,7 @@
 import '@/styles/global.css'
 import Navbar from '@/components/Navbar'
-import Background from '@/components/Background'
+import dynamic from 'next/dynamic';
+const Background = dynamic(() => import('@/components/Background'));
 
 export const metadata = {
   title: 'Ediz Keskin',

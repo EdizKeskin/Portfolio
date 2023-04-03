@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.13",
     "@react-three/drei": "^9.61.3",
     "@react-three/fiber": "^8.12.0",
     "autoprefixer": "^10.4.14",
@@ -20,7 +19,6 @@
     "next": "13.2.4",
     "postcss": "^8.4.21",
     "react": "18.2.0",
-    "react-animated-progress-bar": "^1.1.2",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-tsparticles": "^2.9.3",

@@ -1,12 +1,11 @@
 'use client';
-import { ContactShadows, Loader, OrbitControls } from '@react-three/drei';
+import { ContactShadows, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import React from 'react'
 import { Suspense } from 'react';
-import Model from './Model';
 import CanvasProgress from './CanvasProgress';
-
-
+import dynamic from 'next/dynamic';
+const Model = dynamic(() => import('./Model'));
 
 export default function Logo() {
     return (
