@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    scroll-behavior: smooth;
+}
+
+*:before,
+*:after {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: 10s all;
+}
+
+*::-webkit-scrollbar {
+    width: 0.45rem;
+    background-color: #282c34;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #171923;
+    border-radius: 3px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+canvas:hover {
+    cursor: grab;
+}
+
+/* Hamburger menu: https://codepen.io/ainalem/pen/wvKOEMV */
+.line {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 6;
+    transition: stroke-dasharray 500ms cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .line1 {
+    stroke-dasharray: 60 207;
+  }
+  .line2 {
+    stroke-dasharray: 60 60;
+  }
+  .line3 {
+    stroke-dasharray: 60 207;
+  }
+  .opened.line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+  }
+  .opened.line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+  }
+  .opened.line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+  }
