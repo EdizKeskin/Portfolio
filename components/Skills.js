@@ -37,7 +37,7 @@ export default function Skills() {
                         <div key={skill.name} className="flex flex-col items-center justify-center text-center">
                             <div className="flex flex-row mb-3 items-center">
                                 {skill.icon && skill.icon}
-                                <p className="text-2xl font-bold">{skill.name}</p>
+                                <p className="text-2xl ml-4 font-bold">{skill.name}</p>
                             </div>
                             <progress className="progress progress-success w-56" value={skill.value} max="100"></progress>
                         </div>

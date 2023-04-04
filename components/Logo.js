@@ -9,7 +9,7 @@ const Model = dynamic(() => import('./Model'));
 
 export default function Logo() {
     return (
-        <div className="canvas p-18 w-[500px] h-[500px]">
+        <div className="canvas p-18 md:w-[500px] md:h-[500px] sm:w-[400px] sm:h-[400px]">
             <Canvas
                 width={700}
                 height={700}

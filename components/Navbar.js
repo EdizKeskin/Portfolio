@@ -1,4 +1,5 @@
 'use client';
+import { motion } from "framer-motion";
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
@@ -38,7 +39,6 @@ function useIsScrollTop() {
             setIsTop(window.scrollY <= 0)
         }
         window.addEventListener("scroll", onScroll, { passive: true })
-
         return () => {
             window.removeEventListener("scroll", onScroll, { passive: true })
         }
@@ -65,6 +65,56 @@ function useToggleMenu() {
 export default function Navbar() {
     const [menuShow, onMenuToggle] = useToggleMenu()
     const isTop = useIsScrollTop()
+    const sidebar = {
+        open: (height = 1000) => ({
+            clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+            display: "block",
+            transition: {
+                display: "block",
+                type: "spring",
+                stiffness: 20,
+                restDelta: 2,
+                duration: 2
+            }
+        }),
+        closed: {
+            transition: {
+                delay: 0.5,
+                type: "spring",
+                stiffness: 400,
+                damping: 40,
+                duration: 2,
+                display: "none"
+            },
+            transitionEnd: {
+                display: "none"
+            },
+        },
+    };
+    const ul = {
+        open: {
+            transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+        },
+        closed: {
+            transition: { staggerChildren: 0.05, staggerDirection: -1 }
+        }
+    };
+    const li = {
+        open: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                y: { stiffness: 1000, velocity: -100 }
+            }
+        },
+        closed: {
+            y: 50,
+            opacity: 0,
+            transition: {
+                y: { stiffness: 1000 }
+            }
+        }
+    };
 
     return (
         <>
@@ -95,14 +145,21 @@ export default function Navbar() {
                         </div>
                     </div>
                 </nav>
-            </header>
-            <div
-                className={`sm:hidden fixed w-full h-screen right-0 bg-gray-800 z-20 transform ease-in-out duration-500 ${menuShow ? "translate-x-0" : " -translate-x-full"
-                    } backdrop-filter bg-opacity-30 backdrop-blur-md firefox:bg-opacity-100 dark:firefox:bg-opacity-100`}
+            </header >
+            {/* transform ease-in-out duration-500 */}
+            <motion.nav
+                id="sidebar"
+                initial={false}
+                animate={menuShow ? "open" : "closed"}
+                variants={sidebar}
+                className={`fixed w-full h-screen right-0 bg-gray-800 z-20 backdrop-filter bg-opacity-30 backdrop-blur-md firefox:bg-opacity-100 dark:firefox:bg-opacity-100`
+                }
             >
-                <nav className="h-full mt-8 space-y-8">
+                <motion.ul variants={ul} className="h-full mt-8 space-y-8">
                     {navlinks.map(link => (
-                        <div key={link.title} className="px-12" >
+                        <motion.li variants={li}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }} key={link.title} className="px-12" >
                             <Link
                                 href={link.href}
                                 className="text-xl font-semibold leading-8 tracking-wide text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
@@ -110,10 +167,11 @@ export default function Navbar() {
                             >
                                 {link.title}
                             </Link>
-                        </div>
+                        </motion.li>
                     ))}
-                </nav >
-            </div >
+                </motion.ul >
+            </motion.nav>
+
         </>
     )
 }

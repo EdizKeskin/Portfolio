@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 export default function MotionDiv({ children, ...props }) {
+
     return (
         <motion.div viewport={{ once: false }}
             initial={props.right ? { opacity: 0, x: 100 } : { opacity: 0, x: -100 }}

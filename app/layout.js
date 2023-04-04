@@ -2,6 +2,7 @@ import '@/styles/global.css'
 import Navbar from '@/components/Navbar'
 import dynamic from 'next/dynamic';
 const Background = dynamic(() => import('@/components/Background'));
+import { Montserrat } from '@next/font/google';
 
 export const metadata = {
   title: 'Ediz Keskin',
@@ -47,9 +48,15 @@ export const metadata = {
   themeColor: 'black',
 }
 
+const montserrat = Montserrat({
+  variable: '--font-montserrat',
+  subsets: ['latin'],
+});
+
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${montserrat.variable}d`}>
       <body>
         <Navbar />
         {children}
