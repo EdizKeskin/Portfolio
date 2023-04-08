@@ -31,7 +31,7 @@ export default function Skills() {
     return (
         <div className="mockup-window backdrop-blur-md bg-[#2d374850] border border-base-300 shadow-lg mb-6 sm:shadow-[#aa65fa] sm:border-none">
             <div className="p-4 m-4 md:p-10 md:m-10 py-10 md:py-10">
-                <h2 className="text-rose-500 text-4xl font-bold">Skills</h2>
+                <h2 className="text-white text-4xl font-bold">Skills</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 mb-10">
                     {skills.map((skill) => (
                         <div key={skill.name} className="flex flex-col items-center justify-center text-center">

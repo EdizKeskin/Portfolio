@@ -16,7 +16,7 @@ export default function TypeWriter() {
                     .pauseFor(600)
                     .deleteAll()
                     .pauseFor(600)
-                    .typeString("<span>Learning Reactjs<span>")
+                    .typeString("<span>Learning Next.js<span>")
                     .pauseFor(600)
                     .start();
             }}

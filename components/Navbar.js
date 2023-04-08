@@ -72,6 +72,7 @@ export default function Navbar() {
             display: "block",
             transition: {
                 display: "block",
+                type: "spring",
                 stiffness: 20,
                 restDelta: 2,
                 duration: 2
@@ -79,11 +80,6 @@ export default function Navbar() {
         }),
         closed: {
             transition: {
-                delay: 0.5,
-                type: "spring",
-                stiffness: 400,
-                damping: 40,
-                duration: 2,
                 display: "none"
             },
             transitionEnd: {
@@ -96,7 +92,7 @@ export default function Navbar() {
         <>
             <LazyMotion features={domAnimation}>
                 <header
-                    className={`w-full sticky top-0 flex items-center justify-between py-4 z-40  ${isTop
+                    className={`w-full sticky top-0 flex items-center justify-between py-4 z-50  ${isTop
                         ? "border-none"
                         : "border-b border-gray-200 dark:border-gray-800"
                         } bg-gray-800 bg-opacity-30 backdrop-filter backdrop-blur-md firefox:bg-opacity-100 dark:firefox:bg-opacity-100`}
@@ -123,13 +119,12 @@ export default function Navbar() {
                         </div>
                     </nav>
                 </header >
-                {/* transform ease-in-out duration-500 */}
                 <m.nav
                     id="sidebar"
                     initial={false}
                     animate={menuShow ? "open" : "closed"}
                     variants={sidebar}
-                    className={`fixed w-full h-screen right-0 bg-gray-800 z-20 backdrop-filter bg-opacity-30 backdrop-blur-md firefox:bg-opacity-100 dark:firefox:bg-opacity-100`
+                    className={`fixed w-full h-screen right-0 bg-gray-800 z-50 backdrop-filter bg-opacity-30 backdrop-blur-md firefox:bg-opacity-100 dark:firefox:bg-opacity-100`
                     }
                 >
                     <ul className="h-full mt-8 space-y-8">

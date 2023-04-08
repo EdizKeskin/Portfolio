@@ -56,9 +56,9 @@ export default function Home() {
             <div className="text-center leading-4 text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight z-40">
               <h1 className="text-white mb-8">
                 I&apos;m
-                <span className="after:w-full after:h-2/6 after:absolute after:bottom-1 after:left-0 after:bg-[#aa65fa] after:-z-20 text-white relative ml-2">Ediz Keskin</span>
+                <span className="after:w-full after:h-2/6 after:absolute after:bottom-1 after:left-0 after:bg-[#8b55c9] after:-z-20 text-white relative ml-2">Ediz Keskin</span>
               </h1>
-              <h2 className="text-rose-500 leading-10 md:leading-none text-3xl" >
+              <h2 className="text-[#aa65fa] leading-10 md:leading-none text-3xl" >
                 <TypeWriter />
               </h2>
             </div>
