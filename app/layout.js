@@ -1,7 +1,6 @@
 import '@/styles/global.css'
 import Navbar from '@/components/Navbar'
 import dynamic from 'next/dynamic';
-const Background = dynamic(() => import('@/components/Background'));
 import { Montserrat } from '@next/font/google';
 
 export const metadata = {
@@ -60,7 +59,6 @@ export default function RootLayout({ children }) {
       <body className='bg-[#1A202C] min-h-screen'>
         <Navbar />
         {children}
-        {/* <Background /> */}
       </body>
     </html>
   )

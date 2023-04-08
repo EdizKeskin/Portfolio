@@ -22,9 +22,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
-    "react-tsparticles": "^2.9.3",
     "three": "^0.151.2",
-    "tsparticles": "^2.9.3",
     "typewriter-effect": "^2.18.2"
   },
   "devDependencies": {
