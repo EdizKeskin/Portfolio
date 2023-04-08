@@ -1,5 +1,5 @@
 'use client';
-import { motion } from "framer-motion";
+import { m, LazyMotion, domAnimation } from "framer-motion";
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
@@ -65,13 +65,13 @@ function useToggleMenu() {
 export default function Navbar() {
     const [menuShow, onMenuToggle] = useToggleMenu()
     const isTop = useIsScrollTop()
+
     const sidebar = {
         open: (height = 1000) => ({
             clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
             display: "block",
             transition: {
                 display: "block",
-                type: "spring",
                 stiffness: 20,
                 restDelta: 2,
                 duration: 2
@@ -91,87 +91,62 @@ export default function Navbar() {
             },
         },
     };
-    const ul = {
-        open: {
-            transition: { staggerChildren: 0.07, delayChildren: 0.2 }
-        },
-        closed: {
-            transition: { staggerChildren: 0.05, staggerDirection: -1 }
-        }
-    };
-    const li = {
-        open: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                y: { stiffness: 1000, velocity: -100 }
-            }
-        },
-        closed: {
-            y: 50,
-            opacity: 0,
-            transition: {
-                y: { stiffness: 1000 }
-            }
-        }
-    };
 
     return (
         <>
-            <header
-                className={`w-full sticky top-0 flex items-center justify-between py-4 z-40  ${isTop
-                    ? "border-none"
-                    : "border-b border-gray-200 dark:border-gray-800"
-                    } bg-gray-800 bg-opacity-30 backdrop-filter backdrop-blur-md firefox:bg-opacity-100 dark:firefox:bg-opacity-100`}
-            >
-                <nav className="flex items-center justify-between md:justify-center w-full max-w-2xl px-4 mx-auto sm:px-6 sm:py-2 xl:max-w-3xl xl:px-0">
-                    <div className="flex items-center text-base leading-5">
-                        <div className="hidden sm:block sm:space-x-8">
-                            {navlinks
-                                .map(link => (
-                                    <Link
-                                        key={link.title}
-                                        title={link.title}
-                                        href={link.href}
-                                        className="font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
-                                        prefetch={false}
-                                    >
-                                        {link.title}
-                                    </Link>
-                                ))}
+            <LazyMotion features={domAnimation}>
+                <header
+                    className={`w-full sticky top-0 flex items-center justify-between py-4 z-40  ${isTop
+                        ? "border-none"
+                        : "border-b border-gray-200 dark:border-gray-800"
+                        } bg-gray-800 bg-opacity-30 backdrop-filter backdrop-blur-md firefox:bg-opacity-100 dark:firefox:bg-opacity-100`}
+                >
+                    <nav className="flex items-center justify-between md:justify-center w-full max-w-2xl px-4 mx-auto sm:px-6 sm:py-2 xl:max-w-3xl xl:px-0">
+                        <div className="flex items-center text-base leading-5">
+                            <div className="hidden sm:block sm:space-x-8">
+                                {navlinks
+                                    .map(link => (
+                                        <Link
+                                            key={link.title}
+                                            title={link.title}
+                                            href={link.href}
+                                            className="font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
+                                            prefetch={false}
+                                        >
+                                            {link.title}
+                                        </Link>
+                                    ))}
+                            </div>
+                            <div className="flex items-center sm:hidden">
+                                <MenuButton onClick={onMenuToggle} isOpened={menuShow} />
+                            </div>
                         </div>
-                        <div className="flex items-center sm:hidden">
-                            <MenuButton onClick={onMenuToggle} isOpened={menuShow} />
-                        </div>
-                    </div>
-                </nav>
-            </header >
-            {/* transform ease-in-out duration-500 */}
-            <motion.nav
-                id="sidebar"
-                initial={false}
-                animate={menuShow ? "open" : "closed"}
-                variants={sidebar}
-                className={`fixed w-full h-screen right-0 bg-gray-800 z-20 backdrop-filter bg-opacity-30 backdrop-blur-md firefox:bg-opacity-100 dark:firefox:bg-opacity-100`
-                }
-            >
-                <motion.ul variants={ul} className="h-full mt-8 space-y-8">
-                    {navlinks.map(link => (
-                        <motion.li variants={li}
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.95 }} key={link.title} className="px-12" >
-                            <Link
-                                href={link.href}
-                                className="text-xl font-semibold leading-8 tracking-wide text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
-                                onClick={onMenuToggle}
-                            >
-                                {link.title}
-                            </Link>
-                        </motion.li>
-                    ))}
-                </motion.ul >
-            </motion.nav>
-
+                    </nav>
+                </header >
+                {/* transform ease-in-out duration-500 */}
+                <m.nav
+                    id="sidebar"
+                    initial={false}
+                    animate={menuShow ? "open" : "closed"}
+                    variants={sidebar}
+                    className={`fixed w-full h-screen right-0 bg-gray-800 z-20 backdrop-filter bg-opacity-30 backdrop-blur-md firefox:bg-opacity-100 dark:firefox:bg-opacity-100`
+                    }
+                >
+                    <ul className="h-full mt-8 space-y-8">
+                        {navlinks.map(link => (
+                            <li key={link.title} className="px-12" >
+                                <Link
+                                    href={link.href}
+                                    className="text-xl font-semibold leading-8 tracking-wide text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
+                                    onClick={onMenuToggle}
+                                >
+                                    {link.title}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </m.nav>
+            </LazyMotion>
         </>
     )
 }

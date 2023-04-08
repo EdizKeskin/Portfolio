@@ -3,66 +3,109 @@
 @tailwind utilities;
 
 * {
-    scroll-behavior: smooth;
-    font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+  font-family: 'Montserrat', sans-serif;
 }
 
 *:before,
 *:after {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transition: 10s all;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *::-webkit-scrollbar {
-    width: 0.45rem;
-    background-color: #282c34;
+  width: 0.45rem;
+  background-color: #282c34;
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #171923;
-    border-radius: 3px;
+  background-color: #171923;
+  border-radius: 3px;
 }
 
 *::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 canvas {
-    width: 100% !important;
-    height: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 canvas:hover {
-    cursor: grab;
+  cursor: grab;
 }
 
 /* Hamburger menu: https://codepen.io/ainalem/pen/wvKOEMV */
 .line {
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 6;
-    transition: stroke-dasharray 500ms cubic-bezier(0.4, 0, 0.2, 1),
-      stroke-dashoffset 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 6;
+  transition: stroke-dasharray 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line1 {
+  stroke-dasharray: 60 207;
+}
+
+.line2 {
+  stroke-dasharray: 60 60;
+}
+
+.line3 {
+  stroke-dasharray: 60 207;
+}
+
+.opened.line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+}
+
+.opened.line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+}
+
+.opened.line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+}
+
+
+
+@responsive {
+  .gradient-02 {
+    position: absolute;
+    width: 200px;
+    height: 438px;
+    top: 0px;
+    right: 0px;
+
+    background: #7aebfb;
+    filter: blur(190px);
   }
-  .line1 {
-    stroke-dasharray: 60 207;
+
+  .gradient-03 {
+    position: absolute;
+    width: 200px;
+    height: 438px;
+    left: 0;
+    bottom: 0px;
+
+    background: rgba(149, 66, 232, 0.35);
+    filter: blur(175px);
+    transform: rotate(-114.2deg);
   }
-  .line2 {
-    stroke-dasharray: 60 60;
+
+  .gradient-04 {
+    position: absolute;
+    width: 200px;
+    height: 438px;
+    left: 0;
+    bottom: 0px;
+
+    background: #aa65fa;
+    filter: blur(190px);
   }
-  .line3 {
-    stroke-dasharray: 60 207;
-  }
-  .opened.line1 {
-    stroke-dasharray: 90 207;
-    stroke-dashoffset: -134;
-  }
-  .opened.line2 {
-    stroke-dasharray: 1 60;
-    stroke-dashoffset: -30;
-  }
-  .opened.line3 {
-    stroke-dasharray: 90 207;
-    stroke-dashoffset: -134;
-  }
+}

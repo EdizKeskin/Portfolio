@@ -5,7 +5,7 @@ export default function MotionDiv({ children, ...props }) {
     return (
         <motion.div viewport={{ once: false }}
             initial={props.right ? { opacity: 0, x: 100 } : { opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0, animationDelay: 0.5 }}
             transition={{ type: "easeIn", duration: 0.5 }}>
             {children}
         </motion.div>

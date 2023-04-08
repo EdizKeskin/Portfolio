@@ -48,15 +48,17 @@ export default function Home() {
           <div className="flex overflow-hidden">
             <Logo />
           </div>
+          <div className="gradient-02 z-0" />
+          <div className="gradient-03 z-0" />
         </aside>
-        <main>
-          <div>
-            <div className="text-center leading-4 text-4xl backdrop-blur-sm sm:text-5xl md:text-6xl font-medium tracking-tight">
+        <main className="z-30">
+          <div >
+            <div className="text-center leading-4 text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight z-40">
               <h1 className="text-white mb-8">
                 I&apos;m
-                <span className="after:w-full after:h-2/6 after:absolute after:bottom-1 after:left-0 after:bg-rose-500 after:-z-10 text-white relative ml-2">Ediz Keskin</span>
+                <span className="after:w-full after:h-2/6 after:absolute after:bottom-1 after:left-0 after:bg-[#aa65fa] after:-z-20 text-white relative ml-2">Ediz Keskin</span>
               </h1>
-              <h2 className="text-rose-500 leading-10 md:leading-none" >
+              <h2 className="text-rose-500 leading-10 md:leading-none text-3xl" >
                 <TypeWriter />
               </h2>
             </div>
@@ -75,16 +77,21 @@ export default function Home() {
             </div>
           </div>
           <Scroll />
+
         </main>
       </div>
-      <p className="hidden">Hello my name is Ediz Keskin. I&apos;m 17 years old. I want to be Full
-        stack developer in the future.</p>
-      <MotionDiv right>
-        <About />
-      </MotionDiv>
-      <MotionDiv>
-        <Skills />
-      </MotionDiv>
-    </div>
+
+      <div>
+        <p className="hidden">Hello my name is Ediz Keskin. I&apos;m 17 years old. I want to be Full
+          stack developer in the future.</p>
+        <MotionDiv right>
+          <About />
+        </MotionDiv>
+        <MotionDiv>
+          <Skills />
+        </MotionDiv>
+      </div>
+      <div className="gradient-05" />
+    </div >
   );
 }

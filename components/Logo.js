@@ -1,5 +1,5 @@
 'use client';
-import { ContactShadows, OrbitControls } from '@react-three/drei';
+import { ContactShadows, Loader, OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import React from 'react'
 import { Suspense } from 'react';
@@ -9,7 +9,7 @@ const Model = dynamic(() => import('./Model'));
 
 export default function Logo() {
     return (
-        <div className="canvas p-18 md:w-[500px] md:h-[500px] sm:w-[400px] sm:h-[400px]">
+        <div className="canvas p-18 md:w-[500px] md:h-[500px] sm:w-[400px] sm:h-[400px] z-30 relative">
             <Canvas
                 width={700}
                 height={700}
@@ -19,7 +19,7 @@ export default function Logo() {
                 <ambientLight intensity={0.6} />
                 <directionalLight position={[-2, 5, 2]} />
                 <Suspense fallback={<CanvasProgress />}>
-                    <Model />
+                    <Model className="z-40" />
                     <ContactShadows
                         rotation-x={Math.PI / 2}
                         position={[0, -0.8, 0]}
@@ -36,6 +36,7 @@ export default function Logo() {
                     maxPolarAngle={Math.PI / 1.75}
                 />
             </Canvas>
+            <Loader />
         </div>
     )
 }
