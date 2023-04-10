@@ -29,23 +29,23 @@ export default function Skills() {
         },
     ];
     return (
-        <div className="mockup-window backdrop-blur-md bg-[#2d374850] border border-base-300 shadow-lg mb-6 sm:shadow-[#aa65fa] sm:border-none">
-            <div className="p-4 m-4 md:p-10 md:m-10 py-10 md:py-10">
-                <h2 className="text-white text-4xl font-bold">Skills</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 mb-10">
+        <div className="mockup-window backdrop-blur-md bg-[#2d374850] border border-base-300 shadow-lg sm:shadow-md mb-6 sm:shadow-[#aa65fa] sm:border-none">
+            <div className="p-4 py-10 m-4 md:p-10 md:m-10 md:py-10">
+                <h2 className="text-4xl font-bold text-white">Skills</h2>
+                <div className="grid grid-cols-1 gap-6 mt-16 mb-10 md:grid-cols-2 lg:grid-cols-3">
                     {skills.map((skill) => (
                         <div key={skill.name} className="flex flex-col items-center justify-center text-center">
-                            <div className="flex flex-row mb-3 items-center">
+                            <div className="flex flex-row items-center mb-3 text-white">
                                 {skill.icon && skill.icon}
-                                <p className="text-2xl ml-4 font-bold">{skill.name}</p>
+                                <p className="ml-4 text-2xl font-bold">{skill.name}</p>
                             </div>
-                            <progress className="progress progress-success w-56" value={skill.value} max="100"></progress>
+                            <progress className="w-56 progress progress-success" value={skill.value} max="100"></progress>
                         </div>
                     )
                     )}
                 </div>
             </div>
-            <div className="sm:gradient-04 z-0" />
+            <div className="z-0 sm:skills-gradient" />
         </div>
     )
 }

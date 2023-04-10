@@ -1,17 +1,11 @@
 import TypeWriter from "@/components/TypeWriter";
-import {
-  FaInstagram,
-  FaSteam,
-  FaTwitter,
-  FaGithub,
-} from "react-icons/fa";
-import dynamic from 'next/dynamic';
+import { FaInstagram, FaSteam, FaTwitter, FaGithub } from "react-icons/fa";
+import dynamic from "next/dynamic";
 import Scroll from "@/components/Scroll";
 import MotionDiv from "@/components/MotionDiv";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-const Logo = dynamic(() => import('@/components/Logo'));
-
+import About from "@/sections/About";
+import Skills from "@/sections/Skills";
+const Logo = dynamic(() => import("@/components/Logo"));
 
 export default function Home() {
   const Social = [
@@ -42,33 +36,44 @@ export default function Home() {
   ];
 
   return (
-    <div className="container max-w-7xl mx-auto px-4 overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-2 py-18 md:py-24 gap-8 md:gap-10 items-center justify-items-center">
+    <div className="container px-4 mx-auto overflow-hidden max-w-7xl">
+      <div className="grid items-center grid-cols-1 gap-8 lg:grid-cols-2 py-18 md:py-24 md:gap-10 justify-items-center">
         <aside>
           <div className="flex overflow-hidden">
             <Logo />
           </div>
-          <div className="gradient-02 z-0" />
-          <div className="gradient-03 z-0" />
+          <div className="z-0 gradient-1" />
+          <div className="z-0 gradient-2" />
         </aside>
         <main className="z-30">
-          <div >
-            <div className="text-center leading-4 text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight z-40">
-              <h1 className="text-white mb-8">
+          <div>
+            <div className="z-40 text-4xl font-medium leading-4 tracking-tight text-center sm:text-5xl md:text-6xl">
+              <h1 className="mb-8 text-white">
                 I&apos;m
-                <span className="after:w-full after:h-2/6 after:absolute after:bottom-1 after:left-0 after:bg-[#8b55c9] after:-z-20 text-white relative ml-2">Ediz Keskin</span>
+                <span className="after:w-full after:h-2/6 after:absolute after:bottom-1 after:left-0 after:bg-[#8b55c9] after:-z-20 text-white relative ml-2">
+                  Ediz Keskin
+                </span>
               </h1>
-              <h2 className="text-[#aa65fa] leading-10 md:leading-none text-3xl" >
+              <h2 className="text-[#aa65fa] leading-10 md:leading-none text-3xl">
                 <TypeWriter />
               </h2>
             </div>
           </div>
           <div>
             <div className="flex items-center justify-center">
-              <div className="flex items-center flex-row justify-center p-13 mt-10 rounded-md gap-5">
+              <div className="flex flex-row items-center justify-center gap-5 mt-10 rounded-md p-13">
                 {Social.map((social) => (
-                  <div key={social.name} className="tooltip tooltip-bottom" data-tip={social.name}>
-                    <a className="text-white" href={social.href} rel="noopener noreferrer" aria-label={social.ariaLabel}>
+                  <div
+                    key={social.name}
+                    className="tooltip tooltip-bottom"
+                    data-tip={social.name}
+                  >
+                    <a
+                      className="text-white"
+                      href={social.href}
+                      rel="noopener noreferrer"
+                      aria-label={social.ariaLabel}
+                    >
                       {social.icon}
                     </a>
                   </div>
@@ -77,13 +82,14 @@ export default function Home() {
             </div>
           </div>
           <Scroll />
-
         </main>
       </div>
 
       <div>
-        <p className="hidden">Hello my name is Ediz Keskin. I&apos;m 17 years old. I want to be Full
-          stack developer in the future.</p>
+        <p className="hidden">
+          Hello my name is Ediz Keskin. I&apos;m 17 years old. I want to be Full
+          stack developer in the future.
+        </p>
         <MotionDiv right>
           <About />
         </MotionDiv>
@@ -92,6 +98,6 @@ export default function Home() {
         </MotionDiv>
       </div>
       <div className="gradient-05" />
-    </div >
+    </div>
   );
 }

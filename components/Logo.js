@@ -14,7 +14,7 @@ export default function Logo() {
                 width={700}
                 height={700}
                 pixelratio={[1, 2]}
-                camera={{ position: [-3, 2, 15], fov: 6 }}
+                camera={{ position: [-3, 2, 9], fov: 6 }}
             >
                 <ambientLight intensity={0.6} />
                 <directionalLight position={[-2, 5, 2]} />

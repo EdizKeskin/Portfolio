@@ -1,10 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 * {
   scroll-behavior: smooth;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 *:before,
@@ -72,10 +72,8 @@ canvas:hover {
   stroke-dashoffset: -134;
 }
 
-
-
 @responsive {
-  .gradient-02 {
+  .gradient-1 {
     position: absolute;
     width: 200px;
     height: 438px;
@@ -86,7 +84,7 @@ canvas:hover {
     filter: blur(190px);
   }
 
-  .gradient-03 {
+  .gradient-2 {
     position: absolute;
     width: 200px;
     height: 438px;
@@ -98,14 +96,45 @@ canvas:hover {
     transform: rotate(-114.2deg);
   }
 
-  .gradient-04 {
+  .skills-gradient {
     position: absolute;
     width: 200px;
     height: 438px;
     left: 0;
     bottom: 0px;
 
-    background: #aa65fa;
+    background: rgba(170, 101, 250, 0.5);
+    filter: blur(190px);
+  }
+
+  .about-gradient {
+    position: absolute;
+    width: 200px;
+    height: 438px;
+    top: 0px;
+    right: 0px;
+
+    background: rgba(122, 235, 251, 0.5);
+    filter: blur(190px);
+  }
+  .contact-gradient-1 {
+    position: absolute;
+    width: 200px;
+    height: 438px;
+    left: 0;
+    bottom: 0px;
+
+    background: rgba(149, 66, 232, 0.35);
+    filter: blur(155px);
+  }
+  .contact-gradient-2 {
+    position: absolute;
+    width: 200px;
+    height: 438px;
+    bottom: 0px;
+    right: 0px;
+
+    background: rgba(122, 235, 251, 0.35);
     filter: blur(190px);
   }
 }

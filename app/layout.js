@@ -1,29 +1,28 @@
-import '@/styles/global.css'
-import Navbar from '@/components/Navbar'
-import dynamic from 'next/dynamic';
-import { Montserrat } from '@next/font/google';
+import "@/styles/global.css";
+import Navbar from "@/components/Navbar";
+import { Montserrat } from "@next/font/google";
 
 export const metadata = {
-  title: 'Ediz Keskin',
+  title: "Ediz Keskin",
   description: "Ediz Keskin's Homepage",
-  referrer: 'origin-when-cross-origin',
-  keywords: ['Ediz Keskin', 'Portfolio', 'website', 'sharpness', 'sharpness_4'],
-  colorScheme: 'dark',
-  creator: 'Ediz Keskin',
+  referrer: "origin-when-cross-origin",
+  keywords: ["Ediz Keskin", "Portfolio", "website", "sharpness", "sharpness_4"],
+  colorScheme: "dark",
+  creator: "Ediz Keskin",
   openGraph: {
-    title: 'Ediz Keskin',
+    title: "Ediz Keskin",
     description: "Ediz Keskin's Homepage",
-    url: 'https://edizkeskin.com.tr/',
-    siteName: 'Ediz Keskin',
+    url: "https://edizkeskin.com.tr/",
+    siteName: "Ediz Keskin",
     images: [
       {
-        url: 'https://portfolio-nextjs-edizkeskin.vercel.app/card.png',
+        url: "https://portfolio-nextjs-edizkeskin.vercel.app/card.png",
         width: 800,
         height: 600,
       },
     ],
-    locale: 'tr_TR',
-    type: 'website',
+    locale: "tr_TR",
+    type: "website",
   },
   robots: {
     index: true,
@@ -36,30 +35,29 @@ export const metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
     other: {
-      rel: 'apple-touch-icon-precomposed',
-      url: '/favicon.ico',
+      rel: "apple-touch-icon-precomposed",
+      url: "/favicon.ico",
     },
   },
-  themeColor: 'black',
-}
+  themeColor: "black",
+};
 
 const montserrat = Montserrat({
-  variable: '--font-montserrat',
-  subsets: ['latin'],
+  variable: "--font-montserrat",
+  subsets: ["latin"],
 });
-
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${montserrat.variable}d`}>
-      <body className='bg-[#1A202C] min-h-screen'>
+      <body className="bg-[#1A202C] min-h-screen">
         <Navbar />
         {children}
       </body>
     </html>
-  )
+  );
 }
