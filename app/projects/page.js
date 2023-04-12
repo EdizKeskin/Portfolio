@@ -14,8 +14,12 @@ export default async function Projects() {
             index === projects.length - 1 ? "mb-6 md:mb-0" : ""
           }`}
         >
-          <figure className="hover:cursor-pointer">
-            <Link href={project.link} passHref>
+          <figure className={!project.link && "hover:cursor-not-allowed"}>
+            <Link
+              href={project.link ? project.link : ""}
+              className={!project.link && "pointer-events-none"}
+              passHref
+            >
               <Image
                 src={project.image.url}
                 width={project.image.width}
@@ -34,8 +38,17 @@ export default async function Projects() {
                 </div>
               ))}
             </div>
-            <Link href={project.link} passHref>
-              <button className="w-full mt-2 btn btn-primary disabled">
+            <Link
+              href={project.link ? project.link : ""}
+              className={
+                !project.link && "pointer-events-none hover:cursor-not-allowed"
+              }
+              passHref
+            >
+              <button
+                className={`w-full mt-2 btn btn-primary`}
+                disabled={!project.link && true}
+              >
                 <FaGithub size={"20px"} className="mr-2" />
                 Source
               </button>
