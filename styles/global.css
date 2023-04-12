@@ -137,15 +137,25 @@ canvas:hover {
     background: rgba(122, 235, 251, 0.35);
     filter: blur(190px);
   }
-  .gradient-04 {
+  .projects-gradient-1 {
     position: absolute;
     width: 304px;
-    height: 100vh;
+    height: 50vh;
     left: 30%;
     top: 10%;
 
     background: rgba(45, 72, 152, 0.75);
     filter: blur(200px);
     transform: rotate(-53.13deg);
+  }
+  .projects-gradient-2 {
+    position: absolute;
+    width: 200px;
+    height: 438px;
+    left: 30%;
+    top: 10%;
+
+    background: rgba(45, 72, 152, 0.75);
+    filter: blur(200px);
   }
 }

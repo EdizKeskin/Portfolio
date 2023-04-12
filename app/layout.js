@@ -53,7 +53,7 @@ const montserrat = Montserrat({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${montserrat.variable}d`}>
+    <html lang="en" className={`${montserrat.variable}`}>
       <body className="bg-[#1A202C] min-h-screen">
         <Navbar />
         {children}
