@@ -65,7 +65,7 @@ export default function Home() {
                 {Social.map((social) => (
                   <div
                     key={social.name}
-                    className="tooltip tooltip-bottom"
+                    className="tooltip tooltip-bottom tooltip-primary"
                     data-tip={social.name}
                   >
                     <a

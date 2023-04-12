@@ -3,11 +3,13 @@ import { useState } from "react";
 import { BsGithub, BsInstagram, BsPerson, BsTwitter } from "react-icons/bs";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
+import Link from "next/link";
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [copied, setCopied] = useState("Copy Email");
   const {
     register,
     handleSubmit,
@@ -22,21 +24,36 @@ export default function Contact() {
       .then(
         (result) => {
           setSuccess(true);
+          setTimeout(() => {
+            setSuccess(false);
+          }, 5000);
         },
         (error) => {
           setError(true);
+          setTimeout(() => {
+            setError(false);
+          }, 5000);
         }
       );
     e.target.reset();
     setLoading(false);
   };
+  const textToCopy = "edizkeskin@gmail.com";
+
+  function copyToClipboard() {
+    const tempInput = document.createElement("input");
+    tempInput.value = textToCopy;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    setCopied("Copied!");
+    setTimeout(() => {
+      setCopied("Copy Email");
+    }, 3000);
+  }
 
   const socials = [
-    {
-      name: "E-Mail",
-      icon: <BsPerson size="1.5em" />,
-      link: "",
-    },
     {
       name: "Github",
       icon: <BsGithub size="1.5em" />,
@@ -61,11 +78,28 @@ export default function Contact() {
           <div className="flex sm:gap-4 md:gap-8 lg:gap-10 ">
             <div className="flex flex-col items-center justify-center md:flex-row">
               <div className="flex flex-row md:flex-col justify-space-around">
+                <div className="p-6">
+                  <div className="tooltip tooltip-bottom" data-tip={copied}>
+                    <div
+                      onClick={copyToClipboard}
+                      className=" p-3 sm:p-4 md:p-5 hover:cursor-pointer rounded-full text-xl border-none shadow-lg bg-transparent hover:bg-primary hover:text-[#2D3748]"
+                    >
+                      <BsPerson size="1.5em" />
+                    </div>
+                  </div>
+                </div>
                 {socials.map((social) => (
                   <div key={social.name} className="p-6">
-                    <button className="btn btn-sm sm:btn-md md:btn-lg text-xl border-none shadow-lg bg-transparent hover:bg-blue-400 hover:text-[#2D3748]">
-                      {social.icon}
-                    </button>
+                    <div
+                      className="tooltip tooltip-bottom"
+                      data-tip={social.name}
+                    >
+                      <Link href={social.link}>
+                        <button className="p-3 sm:p-4 md:p-5 rounded-full text-xl border-none shadow-lg bg-transparent hover:bg-primary hover:text-[#2D3748]">
+                          {social.icon}
+                        </button>
+                      </Link>
+                    </div>
                   </div>
                 ))}
               </div>
