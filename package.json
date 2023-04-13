@@ -1,7 +1,11 @@
 {
-  "name": "portfolio-next",
+  "name": "edizkeskin-homepage",
   "version": "0.1.0",
-  "private": true,
+  "author": {
+    "name": "Ediz Keskin",
+    "email": "edizkeskin@gmail.com",
+    "url": "https://edizkeskin.com"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
