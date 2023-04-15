@@ -13,3 +13,7 @@ npm run dev
 # or
 yarn
 ```
+
+## Lighthouse Score
+
+![Score](https://i.ibb.co/PTWWxg2/indir.png)
