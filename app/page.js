@@ -36,7 +36,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="container px-4 mx-auto overflow-hidden max-w-7xl">
+    <div className="container px-4 mx-auto mt-5 overflow-hidden max-w-7xl">
       <div className="grid items-center grid-cols-1 gap-8 lg:grid-cols-2 py-18 md:py-24 md:gap-10 justify-items-center">
         <aside>
           <div className="flex overflow-hidden">
@@ -85,11 +85,7 @@ export default function Home() {
         </main>
       </div>
 
-      <div>
-        <p className="hidden">
-          Hello my name is Ediz Keskin. I&apos;m 17 years old. I want to be Full
-          stack developer in the future.
-        </p>
+      <div className="-mt-20 sm:-mt-0">
         <MotionDiv right>
           <About />
         </MotionDiv>
@@ -97,6 +93,10 @@ export default function Home() {
           <Skills />
         </MotionDiv>
       </div>
+      <p className="hidden">
+        Hello my name is Ediz Keskin. I&apos;m 17 years old. I want to be Full
+        stack developer in the future.
+      </p>
       <div className="gradient-05" />
     </div>
   );

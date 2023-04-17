@@ -50,44 +50,31 @@ function useIsScrollTop() {
   return isTop;
 }
 
-function useToggleMenu() {
-  const [menuShow, setMenuShow] = useState(false);
-  const onMenuToggle = () => {
-    setMenuShow((status) => {
-      if (status) {
-        document.body.style.overflow = "auto";
-      } else {
-        document.body.style.overflow = "hidden";
-      }
-      return !status;
-    });
-  };
-  return [menuShow, onMenuToggle];
-}
-
 export default function Navbar() {
-  const [menuShow, onMenuToggle] = useToggleMenu();
+  const [isOpen, setIsOpen] = useState(false);
   const isTop = useIsScrollTop();
 
-  const sidebar = {
-    open: (height = 1000) => ({
-      clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
-      display: "block",
+  const menuVariants = {
+    opened: {
+      top: 0,
       transition: {
-        display: "block",
-        type: "spring",
-        stiffness: 20,
-        restDelta: 2,
-        duration: 2,
+        when: "beforeChildren",
+        staggerChildren: 0.3,
       },
-    }),
+    },
     closed: {
-      transition: {
-        display: "none",
-      },
-      transitionEnd: {
-        display: "none",
-      },
+      top: "-80vh",
+    },
+  };
+
+  const linkVariants = {
+    opened: {
+      opacity: 1,
+      y: 50,
+    },
+    closed: {
+      opacity: 0,
+      y: 0,
     },
   };
 
@@ -95,7 +82,7 @@ export default function Navbar() {
     <>
       <LazyMotion features={domAnimation}>
         <header
-          className={`w-full sticky top-0 flex items-center justify-between py-4 z-50  ${
+          className={`w-full overflow-hidden top-0 flex items-center justify-between py-4 z-50 sticky  ${
             isTop
               ? "border-none"
               : "border-b border-gray-200 dark:border-gray-800"
@@ -116,31 +103,34 @@ export default function Navbar() {
                 ))}
               </div>
               <div className="flex items-center sm:hidden">
-                <MenuButton onClick={onMenuToggle} isOpened={menuShow} />
+                <MenuButton
+                  isOpened={isOpen}
+                  onClick={() => setIsOpen(!isOpen)}
+                />
               </div>
             </div>
           </nav>
         </header>
         <m.nav
-          id="sidebar"
           initial={false}
-          animate={menuShow ? "open" : "closed"}
-          variants={sidebar}
-          className={`fixed w-full h-screen right-0 bg-gray-800 z-50 backdrop-filter bg-opacity-30 backdrop-blur-md firefox:bg-opacity-100 dark:firefox:bg-opacity-100`}
+          variants={menuVariants}
+          className={`fixed right-0 top-0 flex flex-col items-center justify-center w-screen h-screen bg-gray-800 backdrop-filter bg-opacity-30 backdrop-blur-md firefox:bg-opacity-100 dark:firefox:bg-opacity-100 ${
+            isOpen ? "z-40" : "-z-10"
+          }`}
+          animate={isOpen ? "opened" : "closed"}
         >
-          <ul className="h-full mt-8 space-y-8">
+          <m.ul className="text-center">
             {navlinks.map((link) => (
-              <li key={link.title} className="px-12">
+              <m.li key={link.title} variants={linkVariants} className="mb-6">
                 <Link
                   href={link.href}
                   className="text-xl font-semibold leading-8 tracking-wide text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
-                  onClick={onMenuToggle}
                 >
                   {link.title}
                 </Link>
-              </li>
+              </m.li>
             ))}
-          </ul>
+          </m.ul>
         </m.nav>
       </LazyMotion>
     </>
