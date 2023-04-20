@@ -124,6 +124,7 @@ export default function Navbar() {
               <m.li key={link.title} variants={linkVariants} className="mb-6">
                 <Link
                   href={link.href}
+                  onClick={() => setIsOpen(false)}
                   className="text-xl font-semibold leading-8 tracking-wide text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
                 >
                   {link.title}
