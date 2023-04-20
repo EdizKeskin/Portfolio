@@ -1,6 +1,7 @@
 import "@/styles/global.css";
 import Navbar from "@/components/Navbar";
 import { Montserrat } from "@next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Ediz Keskin",
@@ -58,6 +59,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
       </body>
+      <Analytics />
     </html>
   );
 }
