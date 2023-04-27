@@ -3,9 +3,10 @@ import { FaInstagram, FaSteam, FaTwitter, FaGithub } from "react-icons/fa";
 import dynamic from "next/dynamic";
 import Scroll from "@/components/Scroll";
 import MotionDiv from "@/components/MotionDiv";
-import About from "@/sections/About";
-import Skills from "@/sections/Skills";
-const Logo = dynamic(() => import("@/components/Logo"));
+
+const Logo = dynamic(() => import("@/components/models/Logo"));
+const Skills = dynamic(() => import("@/sections/Skills"));
+const About = dynamic(() => import("@/sections/About"));
 
 export default function Home() {
   const Social = [

@@ -10,6 +10,11 @@ export const metadata = {
   keywords: ["Ediz Keskin", "Portfolio", "website", "sharpness", "sharpness_4"],
   colorScheme: "dark",
   creator: "Ediz Keskin",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
   openGraph: {
     title: "Ediz Keskin",
     description: "Ediz Keskin's Homepage",

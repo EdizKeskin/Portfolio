@@ -1,6 +1,8 @@
-import BallCanvas from "@/components/Balls";
 import React from "react";
 import { reactjs, javascript, html, css, git, tailwind } from "@/assets";
+import dynamic from "next/dynamic";
+
+const BallCanvas = dynamic(() => import("@/components/models/Balls"));
 
 export default function Skills() {
   const skills = [
