@@ -95,7 +95,7 @@ export default function Home() {
         </MotionDiv>
       </div>
       <p className="hidden">
-        Hello my name is Ediz Keskin. I&apos;m 17 years old. I want to be Full
+        Hello my name is Ediz Keskin. I&apos;m 18 years old. I want to be Full
         stack developer in the future.
       </p>
       <div className="gradient-05" />
