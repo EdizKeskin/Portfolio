@@ -24,7 +24,7 @@ export default function Home() {
     },
     {
       name: "Instagram",
-      href: "https://www.instagram.com/sharpness_4/",
+      href: "https://www.instagram.com/ediz.keskinn",
       icon: <FaInstagram size={"30px"} color="white" />,
       ariaLabel: "Instagram",
     },
