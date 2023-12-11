@@ -1,7 +1,6 @@
 import "@/styles/global.css";
 import Navbar from "@/components/Navbar";
 import { Montserrat } from "@next/font/google";
-import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Ediz Keskin",
@@ -59,12 +58,11 @@ const montserrat = Montserrat({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${montserrat.variable}`}>
+    <html lang="en" data-theme="dark" className={`${montserrat.variable}`}>
       <body className="bg-[#1A202C] min-h-screen">
         <Navbar />
         {children}
       </body>
-      <Analytics />
     </html>
   );
 }
