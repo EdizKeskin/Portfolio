@@ -1,13 +1,14 @@
 import ProjectCard from "@/components/ProjectCard";
-import { getAllProjects } from "@/functions/getAllProjects";
+import { Projects as data } from "./data";
 
 export default async function Projects() {
-  const projects = await getAllProjects();
   return (
-    <div className="flex flex-col flex-wrap items-center justify-center gap-6 mt-10 lg:mt-20 md:flex-row">
-      {projects?.map((project, index) => (
-        <ProjectCard key={index} project={project} />
-      ))}
+    <div className="flex justify-center">
+      <div className="container flex flex-col flex-wrap items-center justify-center gap-6 my-6 md:flex-row">
+        {data?.map((project, index) => (
+          <ProjectCard key={index} project={project} />
+        ))}
+      </div>
       <div className="z-0 projects-gradient-2 md:projects-gradient-1" />
     </div>
   );
