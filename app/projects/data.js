@@ -2,6 +2,7 @@ import Manga from "@/assets/projects/manga.png";
 import Ecom from "@/assets/projects/ecom.jpg";
 import Chat from "@/assets/projects/chat.jpg";
 import Medium from "@/assets/projects/medium.jpg";
+import Kedy from "@/assets/projects/kedy.png";
 
 const Projects = [
   {
@@ -9,6 +10,12 @@ const Projects = [
     link: "https://github.com/EdizKeskin/MangaReader",
     image: Manga,
     tags: ["Next.js", "MongoDB", "Firebase", "Express"],
+  },
+  {
+    title: "Kedy",
+    link: "https://github.com/EdizKeskin/Kedy",
+    image: Kedy,
+    tags: ["Next.js", "Tailwind"],
   },
   {
     title: "E-Commerce",

@@ -4,7 +4,6 @@ import React from "react";
 import { FaGithub } from "react-icons/fa";
 
 export default function ProjectCard({ project }) {
-  console.log(project);
   return (
     <div
       className={`shadow-xl card w-5/6 md:w-96 max-h-96 bg-base-100 z-20 mb-6 md:mb-0 `}
