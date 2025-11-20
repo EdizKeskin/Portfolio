@@ -1,11 +1,19 @@
 import React from "react";
-import { reactjs, javascript, html, css, git, tailwind } from "@/assets";
+import { reactjs, javascript, html, css, git, tailwind, next } from "@/assets";
 import dynamic from "next/dynamic";
 
 const BallCanvas = dynamic(() => import("@/components/models/Balls"));
 
 export default function Skills() {
   const skills = [
+    {
+      name: "React",
+      icon: reactjs,
+    },
+    {
+      name: "Next.js",
+      icon: next,
+    },
     {
       name: "HTML",
       icon: html,
@@ -21,10 +29,6 @@ export default function Skills() {
     {
       name: "JavaScript",
       icon: javascript,
-    },
-    {
-      name: "React",
-      icon: reactjs,
     },
     {
       name: "Tailwind",

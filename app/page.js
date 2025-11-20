@@ -95,8 +95,11 @@ export default function Home() {
         </MotionDiv>
       </div>
       <p className="hidden">
-        Hello my name is Ediz Keskin. I&apos;m 18 years old. I want to be Full
-        stack developer in the future.
+        Merhaba, ben Ediz Keskin. 20 yaşındayım ve Yönetim Bilişim Sistemleri
+        öğrencisiyim. Aynı zamanda 42 İstanbul&apos;da eğitim almaktayım.
+        Full-stack geliştirici olmak için kendimi sürekli geliştiriyorum.
+        Yazılım dünyasına olan tutkum ve öğrenme azmimle, teknolojinin farklı
+        alanlarında kendimi ilerletmeye devam ediyorum.
       </p>
       <div className="gradient-05" />
     </div>
